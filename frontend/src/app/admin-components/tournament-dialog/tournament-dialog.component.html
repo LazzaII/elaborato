@@ -1,0 +1,30 @@
+<h1 mat-dialog-title> Insert a new tournament </h1>
+<div mat-dialog-content>
+  <form>
+    <div>
+      <label>Tournament name:</label>
+      <input class="form-control" [(ngModel)]="data.name" type="text">
+    </div>
+    <br>
+    <div>
+      <label>Number of participants in the tournament: </label>
+      <input class="form-control" [(ngModel)]="data.participants" type="number" min="3">
+    </div>
+    <bR>
+    <div>
+      <label>Tournament sport: </label>
+      <select class="form-select">
+        <option selected disabled>Select sport</option>
+        <option *ngFor="let sport of sports">
+          {{ sport }}
+        </option>
+      </select>
+    </div>
+  </form>
+</div>
+<br>
+<div mat-dialog-actions id="actionsDiv"> 
+  <button class="btn-warning" mat-button mat-raised-button>Clear input</button>
+  <button class="btn-danger" mat-button mat-raised-button (click)="closeDialog()">Cancel</button>
+  <button class="btn-primary" mat-button mat-raised-button>Insert</button>
+</div>

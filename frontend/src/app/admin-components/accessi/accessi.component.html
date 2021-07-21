@@ -1,0 +1,28 @@
+<div class="mat-elevation-z8 m-2">
+    <mat-form-field class="searchBar">
+        <input matInput #box (keyup)="applyFilter(box.value)" placeholder="Ricerca...">
+    </mat-form-field>
+
+    <mat-table [dataSource]="dataSource" matSort>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+        <ng-container matColumnDef="access">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Entrata </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.access }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="exit">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Uscita </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.exit }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="teacher">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Professore </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.teacher }} </mat-cell>
+        </ng-container>
+
+    </mat-table>
+
+    <mat-paginator [pageSize]="14" [pageSizeOptions]="[7, 14, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,0 +1,71 @@
+<div id="title-div">
+    <button mat-button color="primary">
+        <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+
+    <h2 id="title">Torneo "SerieF" non ancora iniziato  </h2>
+
+    <button mat-button color="primary">
+        <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+</div>
+
+<div id="leaderboard"> 
+    <button mat-button color="accent">
+        <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    
+    <div id="container" class="mat-elevation-z8">
+        <mat-form-field class="searchBar">
+            <input matInput #box (keyup)="applyFilter(box.value)" placeholder="Ricerca..."> 
+        </mat-form-field>
+    
+        <mat-table [dataSource]="dataSource" matSort>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-header-sort> Nome </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="participants">
+                <mat-header-cell *matHeaderCellDef mat-header-sort> N. partecipanti </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.participants }} </mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="sport">
+                <mat-header-cell *matHeaderCellDef mat-header-sort> Sport </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.sport }} </mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="score">
+                <mat-header-cell *matHeaderCellDef mat-header-sort> Punti </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.score }} </mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+                <mat-cell *matCellDef="let row"> 
+                    <button mat-button color="warn" (click) = "deleteTournament($event)">
+                        <mat-icon>delete_outline</mat-icon>
+                    </button>
+                    <button mat-button color="primary" (click) = "editTournament($event)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>      
+        </mat-table>
+    
+        <mat-paginator 
+            [pageSize]="15" 
+            [pageSizeOptions]="[15, 30, 50, 100]" 
+            showFirstLastButtons>
+        </mat-paginator>
+    </div>
+
+    <button mat-button color="accent">
+        <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+    <br>
+</div>

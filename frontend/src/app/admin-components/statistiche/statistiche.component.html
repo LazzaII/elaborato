@@ -1,0 +1,113 @@
+<div id="container">
+    <div class="mat-elevation-z8 m-3 table">
+        <mat-table [dataSource]="dataSourceDay">
+            <mat-header-row *matHeaderRowDef="displayedColumnsD"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumnsD"></mat-row>
+            <mat-footer-row *matFooterRowDef="displayedColumnsD"></mat-footer-row>
+
+            <ng-container matColumnDef="day">
+                <mat-header-cell *matHeaderCellDef> Giorno </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.day }} </mat-cell>
+                <mat-footer-cell *matFooterCellDef><b> Totale </b></mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="tot">
+                <mat-header-cell *matHeaderCellDef> Totale </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.tot }} </mat-cell>
+                <mat-footer-cell *matFooterCellDef><b> {{getTotDay()}} </b></mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="percentage">
+                <mat-header-cell *matHeaderCellDef> Percentuale </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.pc }}%</mat-cell>
+                <mat-footer-cell *matFooterCellDef><b> 100% </b></mat-footer-cell>
+            </ng-container>
+        </mat-table>
+    </div>
+
+    <div class="chart-wrapper mat-elevation-z8 chart mt-3 mb-3">
+        <canvas baseChart 
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [colors]="barChartColor"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+
+    <div class="mat-elevation-z8 m-3 table">
+        <mat-table [dataSource]="dataSourceMonth">
+            <mat-header-row *matHeaderRowDef="displayedColumnsM"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumnsM"></mat-row>
+            <mat-footer-row *matFooterRowDef="displayedColumnsM"></mat-footer-row>
+
+            <ng-container matColumnDef="month">
+                <mat-header-cell *matHeaderCellDef> Mese </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.month }} </mat-cell>
+                <mat-footer-cell *matFooterCellDef><b> Totale </b></mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="tot">
+                <mat-header-cell *matHeaderCellDef> Totale </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.tot }} </mat-cell>
+                <mat-footer-cell *matFooterCellDef><b> {{getTotMonth()}} </b></mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="percentage">
+                <mat-header-cell *matHeaderCellDef> Percentuale </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.pc }}% </mat-cell>
+                <mat-footer-cell *matFooterCellDef><b> 100% </b></mat-footer-cell>
+            </ng-container>
+        </mat-table>
+    </div>
+
+    <div class="chart-wrapper mat-elevation-z8 chart mt-3 mb-3">
+        <canvas baseChart
+        [datasets]="radarChartData"
+        [options]="radarChartOptions"
+        [labels]="radarChartLabels"
+        [colors]="radarChartColor"
+        [chartType]="radarChartType">
+        </canvas>
+    </div>
+
+    <div class="mat-elevation-z8 m-3 table">
+        <mat-table [dataSource]="dataSourceTeacher">
+            <mat-header-row *matHeaderRowDef="displayedColumnsT"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumnsT"></mat-row>
+            <mat-footer-row *matFooterRowDef="displayedColumnsT"></mat-footer-row>
+
+            <ng-container matColumnDef="teacher">
+                <mat-header-cell *matHeaderCellDef> Professore </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.teacher }} </mat-cell>
+                <mat-footer-cell *matFooterCellDef><b> Totale </b></mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="tot">
+                <mat-header-cell *matHeaderCellDef> Totale </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.tot }} </mat-cell>
+                <mat-footer-cell *matFooterCellDef><b> {{getTotTeacher()}} </b></mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="percentage">
+                <mat-header-cell *matHeaderCellDef> Percentuale </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.pc }}% </mat-cell>
+                <mat-footer-cell *matFooterCellDef><b> 100% </b></mat-footer-cell>
+            </ng-container>
+        </mat-table>
+    </div>
+
+    <div class="chart-wrapper mat-elevation-z8 chart mt-3 mb-3">
+        <canvas baseChart
+        [data]="pieChartData" 
+        [labels]="pieChartLabels"       
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [legend]="pieChartLegend"
+        [colors]="pieChartColor"
+        [chartType]="pieChartType">
+        </canvas>
+    </div>  
+</div>

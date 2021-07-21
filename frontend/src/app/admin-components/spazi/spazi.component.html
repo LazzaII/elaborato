@@ -1,0 +1,8 @@
+<div class="container-fluid p-4 text-center">
+    <h3>Spazi</h3>
+    <br>
+    <div *ngFor="let s of spaces; let i = index">
+        <input class="form-control" type="text" placeholder="Spazio {{i + 1}}..." value="{{s}}">
+        <br>
+    </div>
+</div>

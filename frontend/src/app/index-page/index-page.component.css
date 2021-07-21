@@ -1,0 +1,17 @@
+.popup-btn-right button
+{
+    top: 46%;
+    position: fixed;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px 15px;
+}
+
+.popup-btn-left button
+{
+    top: 46%;
+    position: fixed;
+    left: 20px;
+    z-index: 1000;
+    padding: 10px 15px;
+}

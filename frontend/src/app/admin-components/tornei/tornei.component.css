@@ -1,0 +1,30 @@
+#container {
+    margin-top: 1rem;
+}
+
+.searchBar{
+    width: 100%; 
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+#title {
+    text-align: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+#title-div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -1rem;
+}
+
+#leaderboard {
+    display: flex;
+}
+
+#container {
+    flex-grow: 1;
+}

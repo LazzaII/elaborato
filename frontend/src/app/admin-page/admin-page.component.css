@@ -1,0 +1,22 @@
+/* #sidebar
+{
+    height: 100%; 
+    padding-bottom: auto;
+    margin-bottom: 0;
+} */
+
+label:hover
+{
+    color: #0275d8;
+    cursor: pointer;
+}
+
+#img-logo
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 75%;
+}

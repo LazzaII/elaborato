@@ -1,0 +1,35 @@
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div id="sidebar" class="col-3 col-md-2 border-end h-100 bg-light">
+            <div class="ms-3 mt-3">
+                <img id="img-logo" src="https://www.itismeucci.edu.it/templates/meucci-0317/images/Logo%20ITIS%20MEUCCI%20-%20Firenze.png" alt="itismeucci logo">
+                <h3>Admin</h3>
+            </div>
+            <nav class="nav flex-column">
+                <hr>
+                <label class="nav-link" (click)="setSection('Orari')">Orari docenti</label>
+                <label class="nav-link" (click)="setSection('Preferenze')">Preferenze docenti</label>
+                <hr>
+                <label class="nav-link" (click)="setSection('Sostituzioni')">Sostituzioni</label>
+                <label class="nav-link" (click)="setSection('Spazi')">Spazi</label>
+                <label class="nav-link" (click)="setSection('Accessi')">Accessi in palestra</label>
+                <label class="nav-link" (click)="setSection('Statistiche')">Statistiche d'accesso</label>
+                <hr>
+                <label class="nav-link" (click)="setSection('Tornei')">Tornei</label>
+                <hr>
+                <!-- <a class="nav-link" routerLink="/login">Esci dall'account link</a>  -->             <!-- prova href con routerlink -->
+                <label class="nav-link" (click)="setSection('Esci')">Esci dall'account</label>
+            </nav>
+        </div>
+        <div class="col-9 col-md-10" [ngSwitch]="section">
+            <app-orari *ngSwitchCase="'Orari'"></app-orari>
+            <app-preferenze *ngSwitchCase="'Preferenze'"></app-preferenze>
+            <app-sostituzioni *ngSwitchCase="'Sostituzioni'"></app-sostituzioni>
+            <app-spazi *ngSwitchCase="'Spazi'"></app-spazi>
+            <app-accessi *ngSwitchCase="'Accessi'"></app-accessi>
+            <app-statistiche *ngSwitchCase="'Statistiche'"></app-statistiche>
+            <app-tornei *ngSwitchCase="'Tornei'"></app-tornei> 
+            <p *ngSwitchCase="'Esci'">Esci dall'account</p>
+        </div>
+    </div>
+</div>
